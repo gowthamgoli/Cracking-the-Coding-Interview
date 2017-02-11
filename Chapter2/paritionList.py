@@ -29,16 +29,28 @@ def partition(llist, partition):
 
 	print llist
 
+def partition_v2(llist, partition):
+	right = LinkedList()
+	left = LinkedList()
+	for x in llist:
+		if x.value < partition:
+			right.add(x.value)
+		elif x.value >= partition:
+			left.add(x.value)
+	right.tail.next = left.head
+	print right
+
 def main():
+
 	ll = LinkedList()
 	ll.add_multiple([3,5,8,5,10,2,1])
 	print ll
-	partition(ll, 5)
+	partition_v2(ll, 5)
 
 	ll = LinkedList()
 	ll.add_multiple([9,8,7,6,5,4,3])
 	print ll
-	partition(ll, 5)
+	partition_v2(ll, 5)
 
 if __name__ == '__main__':
 	main()
